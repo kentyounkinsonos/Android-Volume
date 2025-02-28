@@ -10,12 +10,11 @@ import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.provider.MediaStore.Audio
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.sonos.volume.databinding.FragmentFirstBinding
 
 private const val TAG = "Volume"
@@ -115,9 +114,12 @@ class FirstFragment : Fragment()
         audioManager.adjustStreamVolume(AudioManager.STREAM_MUSIC, AudioManager.ADJUST_TOGGLE_MUTE, uiFlag)
     }
 
-    inner class VolumeChangeReceiver : BroadcastReceiver() {
-        override fun onReceive(context: Context, intent: Intent) {
-            if (intent.action == "android.media.VOLUME_CHANGED_ACTION") {
+    inner class VolumeChangeReceiver : BroadcastReceiver()
+    {
+        override fun onReceive(context: Context, intent: Intent)
+        {
+            if (intent.action == "android.media.VOLUME_CHANGED_ACTION")
+            {
                 val stream = intent.getIntExtra("android.media.EXTRA_VOLUME_STREAM_TYPE", -1)
                 val volume = intent.getIntExtra("android.media.EXTRA_VOLUME_STREAM_VALUE", -1)
 //                val prevVolume = intent.getIntExtra("android.media.EXTRA_PREV_VOLUME_STREAM_VALUE", -1)
@@ -128,11 +130,11 @@ class FirstFragment : Fragment()
 
     inner class VolumeObserver(
         handler: Handler,
-        private val context: Context
-    ) : ContentObserver(handler) {
+        private val context: Context) : ContentObserver(handler) {
         private val audioManager = context.getSystemService(Context.AUDIO_SERVICE) as AudioManager
 
-        override fun onChange(selfChange: Boolean, uri: Uri?) {
+        override fun onChange(selfChange: Boolean, uri: Uri?)
+        {
             super.onChange(selfChange, uri)
             val currentVolume = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC)
             binding.textviewVolumeObserver.text = "Observer volume: $currentVolume"
