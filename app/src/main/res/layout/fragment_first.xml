@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FirstFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <Button
+                android:id="@+id/button_refresh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Refresh" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checkable="true"
+                android:checked="true"
+                android:text="Show UI"
+                app:checkedIconVisible="true" />
+
+            <Button
+                android:id="@+id/button_up_abs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vol Abs +" />
+
+            <Button
+                android:id="@+id/button_up_inc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vol Inc +" />
+
+            <Button
+                android:id="@+id/button_mute_abs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mute Abs" />
+
+            <Button
+                android:id="@+id/button_mute_inc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mute Inc" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:orientation="vertical"
+            app:layout_constraintStart_toEndOf="@+id/linearLayout"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/textview_volume"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="volume" />
+
+            <TextView
+                android:id="@+id/textview_fixed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="fixed" />
+
+            <TextView
+                android:id="@+id/textview_volume_broadcast"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Broadcast" />
+
+            <TextView
+                android:id="@+id/textview_volume_observer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Observer" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
